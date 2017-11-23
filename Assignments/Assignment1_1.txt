@@ -1,0 +1,31 @@
+
+
+
+public class Calculator {
+
+	int val1;
+	int val2;
+	
+	public Calculator(int a,int b){
+		this.val1 = a;
+		this.val2 = b;
+	}
+	void add(){
+		System.out.println("addtion: " + (this.val1 + this.val2));
+	}
+	
+	void Sub(){
+		System.out.println("Subtraction: " + (this.val1 - this.val2));
+	}
+		
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Calculator c = new Calculator(2,3);
+		c.add();
+		c.Sub();
+
+	}
+
+}
+
+//Here values val1 and val2 are the properties and add and sub are its behaviors.
