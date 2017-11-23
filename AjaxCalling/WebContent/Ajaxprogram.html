@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <title> Student Registration </title>
+    </head>
+    <body>
+     <h2 align="center">REGISTRATION FORM</h2>
+    <form onsubmit="validatename()"> 
+        <div align="center">
+            <table>
+                <tr>
+                     <td><label>User Name</label> </td>
+                    <td><input type="text" id="un" name="Uname" onchange="validateUname()" onblur="resetbg(this)" onfocus="changebg(this)"></td>
+                    <td><div id="message"></div> </td>
+                </tr> 
+                
+                <tr>
+                    <td><label>First Name</label> </td>
+                    <td><input type="text" id="fn" name="fname" onchange="validatechange()" onblur="resetbg(this)" onfocus="changebg(this)"></td>
+                </tr> 
+                <tr> 
+                    <td><label>Last Name</label> </td>
+                    <td><input type="text" name="lname" onblur="resetbg(this)" onfocus="changebg(this)" > </td>
+                </tr>
+                <tr> 
+                    <td><label>Email</label> </td>
+                    <td><input type="text" name="email" onblur="resetbg(this)" onfocus="changebg(this)" > </td>
+                </tr>
+                <tr>
+                    <td><label> Gender</label></td>
+                    <td>Female <input type="radio" name="gender" value="female">
+                     Male <input type="radio" name="gender" value="male"></td></tr>
+
+                <tr><td><input type="submit" value="REGISTER" ></td></tr>
+
+            </table>
+            
+        </div>
+
+        
+        <script type="text/javascript">
+        function validatename()
+        {
+           var fname1=document.getElementById("fn").value;
+            if(fname1=="")
+           { alert("fname cannot be null");
+           }
+           else{
+               alert("Registration Success");
+           }
+        }
+
+        function changebg(getid)
+        {
+          //  document.getElementById("fn").style.backgroundColor="#DCDCDC";
+          getid.style.backgroundColor="#DCDCDC";
+        }
+
+        function resetbg(rset)
+        {
+            rset.style.backgroundColor="#FFFFFF";
+        }
+
+        function validatechange()
+        {
+            var var1=document.getElementById("fn").value;
+
+            if( var1.length<4 || var1.length>8)
+            {
+                alert("First Name should be inbetween 4 to 8 characters");
+            }
+        }
+
+        function validateUname()
+        {
+        
+            var uname=document.getElementById("un").value;
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET","Servletprogram?username="+uname,true);
+            xmlhttp.onreadystatechange=process;
+            xmlhttp.send();
+
+            function process()
+            {
+                if(xmlhttp.readyState==4 && xmlhttp.status== 200)
+                document.getElementById("message").innerHTML=xmlhttp.responseText;
+
+            }
+
+        }
+        </script>
+
+    </form>
+    </body>
+
+</html>
