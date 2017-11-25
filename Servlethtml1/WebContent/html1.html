@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Student Registration Form
+        </title>
+    </head>
+    <body>
+        <div align="center">
+            <h1 style="color:RED"> Registration Form</h1>
+            <form method="Post" action="./Servlet1">
+            <table>
+                <tr><td>First Name</td><td><input type="text" id="fn" name="fname" onchange="validatename()"></td></tr>
+                <tr><td>Last Name</td><td><input type="text" name="lname" ></td></tr>
+                <tr><td>Address</td><td><input type="text" name="address"></td></tr>
+                <tr><td>Gender</td><td><input type="radio" value="Male" name="sgender">Male
+                    <input type="radio" value="Female" name="sgender">Female</td>
+                </tr>
+                <tr>
+                    <td>Qualification</td><td><input type="checkbox" value="BTECH" name="squal">BTECH
+                        <input type="checkbox" value="MTECH" name="squal">MTECH
+                        <input type="checkbox" value="MBA" name="squal">MBA
+                        <input type="checkbox" value="MCA" name="squal">MCA
+                        <input type="checkbox" value="MS" name="squal">MS   
+                        <input type="checkbox" value="PHD" name="squal">PHD
+                    </td>
+
+                <tr>
+                    <td>Interested</td><td>
+                        <select name="interested" multiple="multiple" >
+                            <option value="Chess">Chess</option>
+                            <option value="Badminton">Badminton</option>
+                            <option value="Cricket">Cricket</option>
+                            <option value="Hockey">Hockey</option>   
+                            <option value="Tennis">Tennis</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr><td>Comments</td><td><textarea name="comments" rows="5" cols="50"></textarea></td></tr>
+                <tr><td><input type="submit" value="Registration"></td></tr>
+            </table>
+        </form>
+        </div>
+        <script>
+            function validatename()
+            {
+                var name=document.getElementById("fn").value;
+                if(name.length<4)
+                	{
+                	alert("First Name Cannot be less than 4 characters");
+                	}
+            }
+        </script>
+    </body>
+</html>
