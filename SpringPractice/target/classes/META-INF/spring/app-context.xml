@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<description>Example configuration to get you started.</description>
+
+	<context:component-scan base-package="com.myspring.project" />
+	<bean id="triangle" class="com.myspring.project.Triangle">
+	<property  name="type" value="Equilateral"/>
+	
+	<constructor-arg index="0" value="4Edges"/>
+	<constructor-arg index="1" value="40"/>
+	</bean>
+	<bean id="triangle1" class="com.myspring.project.Triangle1">
+	<property name="pointA"	 ref="pointAA"/>
+	<property name="pointB"	 ref="pointBB"/>
+	<property name="pointC"	 ref="pointCC"/>
+	</bean>
+	<bean id="pointAA" class="com.myspring.project.Point">
+	<property name="x" value="10"/>
+	<property name="y" value="20"/>
+	</bean>
+	<bean id="pointBB" class="com.myspring.project.Point">
+	<property name="x" value="20"/>
+	<property name="y" value="30"/>
+	</bean>
+	<bean id="pointCC" class="com.myspring.project.Point">
+	<property name="x" value="30"/>
+	<property name="y" value="40"/>
+	</bean>
+	
+</beans>
